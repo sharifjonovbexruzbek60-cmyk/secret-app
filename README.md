@@ -1,77 +1,66 @@
 # Secret App
 
-> A Kotlin-based Android application foundation focused on secure configuration and privacy-conscious development.
+My first Kotlin-based Android app project. I’m using it to learn Android development and build good habits around privacy and secure configuration as the project grows.
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
-[![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
-[![Security first](https://img.shields.io/badge/security-first-0A7B5A)](SECURITY.md)
-[![Status](https://img.shields.io/badge/status-learning%20project-6E7781)](#roadmap)
+## Project goals
 
-## Overview
-
-`secret-app` is an Android/Kotlin project scaffold designed to keep secrets out of source control and provide a clean foundation for secure application development.
-
-## Project principles
-
-- Never commit credentials, API keys, tokens, or signing files.
-- Keep local configuration in `.env` or Gradle properties excluded by `.gitignore`.
-- Validate externally supplied data at the application boundary.
-- Prefer least-privilege Android permissions.
+- Keep API keys, passwords, tokens, and signing files out of source control.
+- Store local development settings in files excluded by `.gitignore`.
+- Validate data received from outside the app.
+- Request only the Android permissions the app actually needs.
 - Keep dependencies updated and review security advisories.
 
 ## Requirements
 
 - Android Studio Ladybug or newer
-- JDK 17+
+- JDK 17 or later
 - Android SDK configured through Android Studio
 - Gradle wrapper included in the repository
 
 ## Getting started
 
 1. Clone the repository.
-2. Copy the safe configuration template:
+2. Copy the example configuration file:
 
    ```bash
    cp .env.example .env
    ```
 
-3. Fill in local development values only; never add real secrets to `.env.example`.
-4. Open the project in Android Studio.
-5. Sync Gradle and run the app on an emulator or connected device.
+3. Add local development values to `.env` only. Do not put real secrets in `.env.example`.
+4. Open the project in Android Studio and sync Gradle.
+5. Run the app on an emulator or connected Android device.
 
 ## Repository structure
 
 ```text
 app/              Android application module
-gradle/            Gradle wrapper configuration
-.env.example      Safe configuration template
+gradle/           Gradle wrapper configuration
+.env.example      Example configuration without real secrets
 metadata.json     Project metadata
 ```
 
-## Security checklist
+## Before committing
 
-Before every commit:
+- Check that `.env`, keystores, and generated build files are excluded from Git.
+- Make sure credentials or tokens have not been added to the source.
+- Review permissions in `AndroidManifest.xml`.
+- Run the available tests and Gradle checks.
 
-- Confirm `.env`, keystores, and generated build files are ignored.
-- Search for accidentally embedded tokens or passwords.
-- Review permissions declared in `AndroidManifest.xml`.
-- Run the project’s available tests and Gradle checks.
-
-## Roadmap
+## Next steps
 
 - Add unit and instrumented tests.
 - Add CI checks for formatting, tests, and dependency updates.
-- Document the application architecture and threat model.
-- Add a declared open-source license.
+- Document the app architecture as it develops.
+- Add an open-source license if and when appropriate.
 
 ## Security reporting
 
-If you discover a security issue, do not publish sensitive details in a public issue. Use the repository owner’s private contact channel and include safe reproduction steps without exposing credentials or personal data.
+Please do not post sensitive vulnerability details in a public issue. Contact the repository owner privately with a responsible report.
 
 ## License
 
-No license has been declared yet. All rights are reserved until a license is added.
+No license has been declared yet. All rights are reserved until one is added.
 
-## Author
+## About
 
-Behruzbek Sharifjonov — Android/Kotlin and cybersecurity learner.
+Built by Behruzbek Sharifjonov as my first app and a learning project in Kotlin and Android development.
